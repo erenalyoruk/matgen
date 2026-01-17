@@ -1,6 +1,6 @@
 # MatGen: High-Performance Parallel Sparse Matrix Generation
 
-**MatGen** is a production-ready C library designed for generating and scaling massive sparse matrices. It employs advanced parallel algorithms including **Nearest Neighbor** and **Bilinear Interpolation** to preserve structural and value integrity during scaling operations.
+**MatGen** is a production-ready C library designed for generating and scaling massive sparse matrices. It employs advanced parallel algorithms including **Nearest Neighbor**, **Bilinear Interpolation** and **Lanczos Resampling** to preserve structural and value integrity during scaling operations.
 
 Architected for modern hardware, MatGen seamlessly dispatches computations across **CPUs (OpenMP)**, **GPUs (CUDA)**, and **Distributed Clusters (MPI)**, making it an ideal tool for HPC benchmarking and large-scale system testing.
 
@@ -11,6 +11,7 @@ Architected for modern hardware, MatGen seamlessly dispatches computations acros
 - **Advanced Scaling Algorithms**:
   - **Nearest Neighbor**: Preserves original values, ideal for discrete state matrices.
   - **Bilinear Interpolation**: Smooths values, perfect for physical simulations.
+  - **Lanczos Resampling**: Preserves structure and symmetry.
 - **Multi-Backend Architecture**:
   - **Sequential**: Optimized baseline for verification and small data.
   - **OpenMP**: Shared-memory parallelism for multi-core workstations.

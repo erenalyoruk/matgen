@@ -80,7 +80,13 @@ matgen_error_t matgen_scale_bicubic_with_policy(...) {
 
 Always implement the sequential version first in `src/backends/seq/algorithms/scaling/`. This serves as the reference implementation and fallback. Also, you must define a header for backend functions (e.g. `matgen_scale_bicubic_{backend}`) in `src/backends/{backend}/internal/bicubic_{backend}.h` for convenient include in dispatch.
 
-### 4. Add Options in Executable
+### 4. Add New Files to the Corresponding CMakeLists.txt
+Add the new files to the corresponding CMakeLists.txt file's target sources for the linker to successfully link your algorithms to the program:
+- Add dispatch file to `src/algorithms/scaling/CMakeLists.txt`
+- Add back-end sequential version of your algorithm to `src/backends/seq/algorithms/scaling/CMakeLists.txt`
+- Add back-end parallel version of your algorithm to `src/backends/{backend}/algorithms/scaling/CMakeLists.txt` where backend is the parallelization framework (OPENMP/MPI/CUDA)
+
+### 5. Add Options in Executable
 
 `testbed/scale_cli.c` is a basic CLI program that has options to test backends and algorithms in runtime. You must add your public definition of algorithm (`include/algorithms/scaling.h` -> `matgen_scale_bicubic_with_policy`) in CLI to run and test.
 

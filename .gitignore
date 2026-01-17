@@ -10,6 +10,15 @@ compile_commands.json
 # build directories
 build/
 out/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.a
+*.o
+*.so
+*.dylib
+*.exe
 
-# old source code
-old_source/
+# matrix outputs
+*.mtx
